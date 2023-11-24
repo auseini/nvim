@@ -33,12 +33,25 @@ require('mason-lspconfig').setup({
 })
 
 local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action();
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_mappings = lsp_zero.defaults.cmp_mappings({
 	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+	['<Up>'] = cmp.mapping.select_prev_item(cmp_select),
+	['<Down>'] = cmp.mapping.select_next_item(cmp_select),
 	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 	['<C-y>'] = cmp.mapping.confirm({ select=true}),
 	['<C-Space>'] = cmp.mapping.complete(),
-
+})
+cmp.setup({
+    window = {
+        documentation = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
+    },
+    mapping = {
+        ['<Tab>'] = cmp_action.tab_complete(),
+        ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+        ['<CR>'] = cmp.mapping.confirm({select=true}),
+    }
 })
 
