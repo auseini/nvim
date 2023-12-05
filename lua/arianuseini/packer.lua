@@ -36,4 +36,5 @@ return require('packer').startup(function(use)
 			{"williamboman/mason-lspconfig.nvim"},
 		}
 	}
+    use {"rebelot/kanagawa.nvim", as = "kanagawa" }
 end)

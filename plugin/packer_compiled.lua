@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/Users/arianuseini/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  kanagawa = {
+    loaded = true,
+    path = "/Users/arianuseini/.local/share/nvim/site/pack/packer/start/kanagawa",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/arianuseini/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
