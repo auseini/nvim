@@ -37,4 +37,5 @@ return require('packer').startup(function(use)
 		}
 	}
     use {"rebelot/kanagawa.nvim", as = "kanagawa" }
+    use { "m4xshen/autoclose.nvim" }
 end)
