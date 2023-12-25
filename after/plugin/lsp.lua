@@ -13,11 +13,16 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  vim.filetype.add({
+      extension = {
+          templ = "templ",
+      }
+  })
 end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'tsserver', 'gopls', 'rust_analyzer', 'eslint', 'clangd'},
+  ensure_installed = {'templ', 'tsserver', 'gopls', 'rust_analyzer', 'eslint', 'clangd'},
   handlers = {
     lsp_zero.default_setup,
     tsserver = function()
@@ -31,6 +36,7 @@ require('mason-lspconfig').setup({
     end,
   },
 })
+
 
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action();

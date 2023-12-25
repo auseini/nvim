@@ -38,4 +38,39 @@ return require('packer').startup(function(use)
 	}
     use {"rebelot/kanagawa.nvim", as = "kanagawa" }
     use { "m4xshen/autoclose.nvim" }
+    -- Remove the `use` here if you're using folke/lazy.nvim.
+--use {
+  --'Exafunction/codeium.vim',
+ -- config = function ()
+    -- Change '<C-g>' here to any keycode you like.
+  --  vim.keymap.set('i', '<C-g>', function () return vim.fn['codeium#Accept']() end, { expr = true })
+   -- vim.keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true })
+   -- vim.keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true })
+   -- vim.keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true })
+  --end
+--}
+use({
+  "epwalsh/obsidian.nvim",
+  tag = "*",  -- recommended, use latest release instead of latest commit
+  requires = {
+    -- Required.
+    "nvim-lua/plenary.nvim",
+
+    -- see below for full list of optional dependencies 👇
+  },
+  config = function()
+    require("obsidian").setup({
+      workspaces = {
+        {
+          name = "personal",
+          path = "~/personal/notes",
+        },
+      },
+
+      -- see below for full list of options 👇
+    })
+  end,
+})
+use { "neanias/everforest-nvim", as = "everforest" }
+use {"EdenEast/nightfox.nvim"}
 end)
