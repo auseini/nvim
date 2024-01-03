@@ -73,4 +73,6 @@ use({
 })
 use { "neanias/everforest-nvim", as = "everforest" }
 use {"EdenEast/nightfox.nvim"}
+use {"nvim-treesitter/nvim-treesitter-context"}
+use {'rose-pine/neovim', as = 'rose-pine'}
 end)
